@@ -30,6 +30,7 @@ Route::middleware(['auth:sanctum','active'])->group(function () {
         Route::post('/users', [UserController::class, 'store']);
         Route::put('/users/{user}', [UserController::class, 'update']);
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
+        Route::patch('/users/{user}/toggle-active', [UserController::class, 'toggleActive']);
 
         // Servicios
         Route::get('/services', [ServiceController::class, 'index']);
