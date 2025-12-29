@@ -48,4 +48,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function locals()
+    {
+        return $this->hasMany(Local::class);
+    }
 }

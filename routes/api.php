@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LocalController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Api\AuthController;
@@ -31,6 +32,13 @@ Route::middleware(['auth:sanctum','active'])->group(function () {
         Route::put('/users/{user}', [UserController::class, 'update']);
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
         Route::patch('/users/{user}/toggle-active', [UserController::class, 'toggleActive']);
+
+        //locales
+        Route::get('/locals', [LocalController::class, 'index']);
+        Route::post('/locals', [LocalController::class, 'store']);
+        Route::get('/locals/{local}', [LocalController::class, 'show']);
+        Route::put('/locals/{local}', [LocalController::class, 'update']);
+        Route::delete('/locals/{local}', [LocalController::class, 'destroy']);
 
         // Servicios
         Route::get('/services', [ServiceController::class, 'index']);
